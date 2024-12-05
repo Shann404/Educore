@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% block body %}
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Events - Mentor Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+    <style>
+
+
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.profile-body form {
+    display: flex;
+    flex-direction: column;
+}
+.profile-body form .btn-save {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+.profile-body form .btn-save:hover {
+    background-color: #0056b3;
+}
+
+.page-title{
+    background-image: url("{% static '/assets/img/pfpbackground.jpg' %}");
+    background-size: cover;
+    background-position: center;
+}
+
+.page-title h1{
+    color: gold;
+}
+.btn-edit {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    background-color: gold;
+}
+
+.btn-edit:hover {
+    background-color: #218838;
+}
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-pic">
+            {% else %}
+                <img src="{% static '/assets/img/defaultpfp.jpg' %}" alt="Default Profile Picture" class="profile-pic">
+            {% endif %}
+            <h1>{{ request.user.username }}</h1>
+        </div>
+        <div class="profile-body">
+            <p><strong>Email:</strong> {{ profile.email_address }}</p>
+            <p><strong>Contact:</strong> {{ profile.contact }}</p>
+            <p><strong>City/Town:</strong> {{ profile.city_or_town }}</p>
+            <p><strong>User Type:</strong> {{ profile.user_type }}</p>
+            <p><strong>County:</strong> {{ profile.county }}</p>
+            <p><strong>Programme:</strong> {{ profile.programme }}</p>
+            <p><strong>Registration Number:</strong> {{ profile.registration_number }}</p>
+            <p><strong>Gender:</strong> {{ profile.gender }}</p>
+            <p><strong>ID Number:</strong> {{ profile.id_number }}</p>
+        </div>
+    <div class="profile-footer">
+            <a href="/profile/edit/" class="btn-edit" >Edit Profile</a>
+        </div>
+    <div class="profile-footer">
+            <a href="/dashboard/" class="btn-edit" >Back</a>
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock %}
