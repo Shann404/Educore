@@ -6,9 +6,8 @@ from django.contrib.auth.decorators import login_required
 from learnify.models import CustomUser, Contact
 from django.contrib.auth import get_user_model
 from .forms import RegisterForm
-from .models import Course,Lesson,UserCourse
+from .models import Course,Lesson,UserCourse,Profile
 from django.http import JsonResponse
-from .models import Profile
 from .forms import ProfileForm
 
 
