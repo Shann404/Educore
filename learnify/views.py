@@ -74,7 +74,6 @@ def register_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Registration successful! Please log in.")
-            return redirect('login')
     else:
         form = RegisterForm()
 
@@ -110,8 +109,11 @@ def feedback(request):
 
         contact.save()
 
+        messages.success(request, "Thank you! Your feedback has been submitted successfully.")
+
         return redirect('/contact/')
 
+    return render(request, 'contact.html')
 # Create your views here.
 def index(request):
     return render(request, 'index.html')

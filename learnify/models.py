@@ -4,7 +4,6 @@ from django.db import models
 class CustomUser(AbstractUser):
     role = models.CharField(max_length=50, choices=(('student', 'Student'), ('teacher', 'Teacher')))
 
-
 class Course(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()

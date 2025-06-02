@@ -1863,7 +1863,7 @@ section,
   background: var(--accent-color);
   border: 0;
   padding: 10px 30px 12px 30px;
-  transition: 0.4s;
+  transition:;
   border-radius: 50px;
 }
 

@@ -21,10 +21,10 @@ class RegisterForm(forms.ModelForm):
         model = User
         fields = ['username', 'email', 'password']
 
-    def clean(self):
-        cleaned_data = super().clean()
-        password = cleaned_data.get('password')
-        confirm_password = cleaned_data.get('confirm_password')
+def clean(self):
+    cleaned_data = super().clean()
+    password = cleaned_data.get('password')
+    confirm_password = cleaned_data.get('confirm_password')
 
     def save(self, commit=True):
         user = super().save(commit=False)

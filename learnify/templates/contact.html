@@ -42,6 +42,27 @@
             font-weight: bold;
             text-align: center;
         }
+
+        ul.messages {
+    list-style-type: none;
+    padding: 0;
+}
+
+.messages li {
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.messages .success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.messages .error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
     </style>
 
 
@@ -138,6 +159,14 @@
 
 
                   <button class="btn" type="submit">Send Message</button>
+
+                  {% if messages %}
+                     <ul class="messages" id="message-container">
+                      {% for message in messages %}
+                        <li class="{{ message.tags }}">{{ message }}</li>
+                   {% endfor %}
+  </ul>
+{% endif %}
                 </div>
             </form>
           </div><!-- End Contact Form -->
@@ -212,7 +241,6 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -224,6 +252,16 @@
 
   <!-- Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+
+<script>
+  // Hide messages after 5 seconds
+  setTimeout(function() {
+    const messageContainer = document.getElementById('message-container');
+    if (messageContainer) {
+      messageContainer.style.display = 'none';
+    }
+  }, 3000); // 5000 ms = 5 seconds
+</script>
 
 </body>
 
