@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-y^8+^7o_(2dfy)%n1x79efi736rf)tv1q10gk0hu9bq+%4w3_!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['educore-production-b6fb.up.railway.app', '127.0.0.1', 'localhost']
 
 
 # Application definition
