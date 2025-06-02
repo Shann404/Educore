@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-y^8+^7o_(2dfy)%n1x79efi736rf)tv1q10gk0hu9bq+%4w3_!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['educore-production-b6fb.up.railway.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    'educore-production-b6fb.up.railway.app', '127.0.0.1', 'localhost'
+]
 
 
 # Application definition
@@ -122,9 +124,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+import os
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
